@@ -4,7 +4,7 @@
 
 # The metaverse
 
-https://github.com/0xPr0f/NFTLounge.
+The metaverse (https://github.com/0xPr0f/NFTLounge).
 
 ## This is my submission for the NFT hack 2022 by ethglobal
 
