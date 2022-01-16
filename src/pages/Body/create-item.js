@@ -478,7 +478,8 @@ export default function Home() {
                         </a>
                       </p>
                       <p className="flex flex-row text-2xl mb-2 mt-2">
-                        <p>lounge key: &nbsp;</p> https://cdn.livepeer.com/hls/
+                        <p>lounge METAVERSE key: &nbsp;</p>{" "}
+                        https://cdn.livepeer.com/hls/
                         {data.playbackId}/index.m3u8
                         <>&nbsp;</>
                         <AiOutlineCopy

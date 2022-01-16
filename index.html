@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style>
+      body {
+        font-family: Arial, Helvetica, sans-serif;
+      }
+
+      #container {
+        width: 80vw;
+        margin: auto;
+      }
+
+      #imageContainer {
+        width: 80vw;
+        height: 600px;
+        overflow-x: scroll;
+        overflow-y: scroll;
+      }
+
+      #hintContainer {
+        height: 10vh;
+        border: 5px solid white;
+        border-radius: 10px;
+        background-color: black;
+      }
+
+      #clueLine {
+        padding: 10px;
+        height: 100%;
+        color: white;
+      }
+
+      .modal {
+        display: none;
+        position: fixed;
+        margin: auto;
+        z-index: 1;
+        padding-top: 100px;
+        top: 0;
+        width: 80vw;
+        height: 100%;
+        overflow: auto;
+      }
+
+      .modal-content {
+        background-color: black;
+        color: white;
+        margin: auto;
+        padding: 20px;
+        border: 5px solid white;
+        border-radius: 10px;
+        width: 60%;
+      }
+
+      .close {
+        color: #aaaaaa;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+      }
+
+      .close:hover,
+      .close:focus {
+        color: white;
+        text-decoration: none;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="container">
+      <div id="hintContainer">
+        <p id="clueLine">CURRENT CLUE: Find the squid</p>
+      </div>
+      <div id="imageContainer">
+        <image
+          id="image"
+          src="https://images.squarespace-cdn.com/content/v1/617ea7a2c92cd454cf67b443/3ebd390e-66ac-43a7-95f1-229ebe84e0ba/FIQa6dWXIAMVDX4.jpeg"
+          alt="mystery map"
+          usemap="#image-map"
+        />
+        <map name="image-map">
+          <area
+            id="firstClueArea"
+            target=""
+            alt=""
+            title=""
+            href="#/"
+            coords="0,0,0,0"
+            shape="rect"
+            onclick="document.getElementById('cluePopup').style.display = 'block';"
+          />
+        </map>
+        <div id="modalDiv">
+          <div id="cluePopup" class="modal">
+            <div class="modal-content">
+              <span class="close" onClick="closePopup();">&times;</span>
+              <p id="popupText">1 Clue: Find the squid!</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      let clueFound = 0;
+      const totalClue = 2;
+
+      const clueArray = [
+        {
+          clueLine: "CURRENT CLUE:",
+          coords: "0,0,0,0",
+          popupText: "1 Clue: Find the squid!",
+        },
+        {
+          clueLine: "CURRENT CLUE: Find the squid",
+          coords: "1048,1760,1178,1936",
+          popupText: `Nice! you find the first clue! 
+          
+          Next, Find the entrance of the building.`,
+        },
+        {
+          clueLine: "CURRENT CLUE: Find the entrance of the building",
+          coords: "1377,962,1516,1187",
+          popupText: "Bravo! you found it the entrance!",
+        },
+      ];
+
+      window.onload = function () {
+        document.getElementById("cluePopup").style.display = "block";
+        document.getElementsByTagName("map")[0].areas[0].coords =
+          clueArray[clueFound].coords;
+      };
+
+      function closePopup() {
+        document.getElementById("cluePopup").style.display = "none";
+        clueFound < totalClue && clueFound++;
+        document.getElementById("popupText").innerText =
+          clueArray[clueFound].popupText;
+        document.getElementById("clueLine").innerText =
+          clueArray[clueFound].clueLine;
+        document.getElementsByTagName("map")[0].areas[0].coords =
+          clueArray[clueFound].coords;
+        console.log(
+          "🚀 ~ file: map.html ~ line 129 ~ closePopup ~ clueFound",
+          clueFound
+        );
+      }
+    </script>
+  </body>
+</html>

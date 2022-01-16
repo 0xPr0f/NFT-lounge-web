@@ -91,7 +91,7 @@ function MyApp({ Component, pageProps }) {
         serverUrl={process.env.NEXT_PUBLIC_MORALIS_SERVER_ID}
       >
         <div className=" m-3">
-          <img src="/colorpixelslogo.png" alt="logo" width="245" height="24" />
+          <h1 className=" text-4xl">NFT LOUNGE</h1>
         </div>
         <Header
           loginState={loginState}
@@ -140,17 +140,7 @@ function MyApp({ Component, pageProps }) {
                 <a className=" font-serif">Create Assets</a>
               </Link>
             </h2>
-            <h2
-              className={
-                router.asPath == "/Body/auction"
-                  ? "active text-2xl text-black"
-                  : "text-red-700  text-2xl"
-              }
-            >
-              <Link href="/Body/auction" style={{ padding: "0rem 3rem" }}>
-                <a className=" font-serif">Auction</a>
-              </Link>
-            </h2>
+
             <h2
               className={
                 router.asPath == "/Body/my-nfts"
