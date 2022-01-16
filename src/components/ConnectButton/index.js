@@ -34,7 +34,7 @@ export default function Header() {
     <div>
       {isAuthenticated ? (
         <>
-          <HStack className=" relative left-56 bottom-11">
+          <HStack className=" relative left-36 bottom-11">
             <Menu
               style={{
                 color: '"#3f50b5',
