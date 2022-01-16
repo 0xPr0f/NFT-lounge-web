@@ -87,7 +87,7 @@ export default function Home() {
     await transaction.wait();
     openModal();
     // eslint-disable-next-line no-restricted-globals
-    // router.push("./Marketplace");
+    router.push("./Marketplace");
   }
 
   async function onChange(e) {
